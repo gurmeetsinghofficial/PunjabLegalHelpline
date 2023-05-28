@@ -1,0 +1,25 @@
+extends layout.pug
+block content
+    section.text-gray-600.body-font.mainPaddingFromTop
+      .container.px-5.mx-auto
+        .flex.flex-wrap.-m-4
+          p.header-bordered.header-large #{city} ਦੇ ਵਕੀਲਾਂ ਦੀ ਸੂਚੀ
+
+    section.text-gray-600.body-font
+      .container.px-5.py-24.mx-auto
+        .flex.flex-wrap.-m-4
+          each advocate in advocates
+            .p-4.w-full(class='lg:w-1/4 md:w-1/2')
+              a.block.h-48.rounded.overflow-hidden(href=`/lawyersInfo/${advocate.id}`)
+                if advocate.imageAvailable==1
+                  img.object-cover.object-center.w-full.h-full.block(alt='ecommerce' src=`../../images/AdvocatesImages/${advocate.imageName}`)
+                else
+                  img.object-cover.object-center.w-full.h-full.block(alt='ecommerce' src='../../images/AdvocatesImages/defaultprofile.jpg')
+              .mt-4
+                h3.text-gray-900.title-font.text-lg.font-medium #{advocate.nameInPunjabi}
+                h2.title-font.text-sm
+                  span.text-gray-700.font-medium Experience - 
+                  span #{advocate.experience} years
+                p.mt-1.title-font.text-sm
+                  span.text-gray-700.font-medium Age - 
+                  span #{advocate.age} years

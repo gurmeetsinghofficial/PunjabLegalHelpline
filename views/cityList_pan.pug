@@ -1,0 +1,20 @@
+extends layout.pug
+block content
+  style.
+    .abc {
+      font-size: 35px;
+    }
+  section.text-gray-900.title-font.font-medium.mainPaddingFromTop
+    .container.px-5.mx-auto
+      .flex.flex-wrap.-m-4
+        h1.header-large.header-bordered ਅਸੀਂ ਹੇਠਾਂ ਦਿੱਤੇ ਸ਼ਹਿਰ ਵਿੱਚ ਉਪਲਬਧ ਹਾਂ
+
+  section.text-gray-600.body-font
+    .container.px-5.py-24.mx-auto
+      .flex.flex-wrap.-m-4
+        each city in cities
+          .p-4.w-full(class='lg:w-1/4 md:w-1/2')
+            a.block.h-48.rounded.overflow-hidden(href=`/listOfAdvocates/${city.city}`)
+              img.object-cover.object-center.w-full.h-full.block(alt='ecommerce' src=`../images/${city.city}.jpg`)
+            .mt-4
+              h2.text-gray-900.title-font.text-lg.font-medium.header-shadow #{city.cityInPunjabi}
